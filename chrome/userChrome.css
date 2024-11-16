@@ -1,0 +1,220 @@
+/*================ VARIABLES ================*/
+:root {
+    /* Gruvbox Colors */
+    --gruvbox-bg: 40, 40, 40;           /* Dark0 */
+    --gruvbox-bg1: 60, 56, 54;          /* Dark1 */
+    --gruvbox-bg2: 80, 73, 69;          /* Dark2 */
+    --gruvbox-fg: 251, 241, 199;        /* Light0 */
+    --gruvbox-fg1: 235, 219, 178;       /* Light2 */
+    --gruvbox-green: 184, 187, 38;
+    --gruvbox-red: 251, 73, 52;
+    --gruvbox-yellow: 250, 189, 47;
+    --gruvbox-blue: 131, 165, 152;
+    --gruvbox-purple: 211, 134, 155;
+    --gruvbox-aqua: 142, 192, 124;
+
+    /* Animation Timings */
+    --transition-short: 0.2s;
+    --transition-medium: 0.3s;
+    --transition-long: 0.5s;
+
+    /* UI Elements */
+    --tab-border-radius: 8px;
+    --url-bar-radius: 8px;
+    --button-radius: 6px;
+}
+
+/*================ ANIMATIONS ================*/
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes tabHover {
+    from { transform: translateY(0); }
+    to { transform: translateY(-2px); }
+}
+
+/*================ GLOBAL STYLES ================*/
+#navigator-toolbox {
+    border: 0 !important;
+    animation: slideDown var(--transition-medium) ease;
+}
+
+* {
+    transition: background-color var(--transition-medium) ease,
+                color var(--transition-medium) ease,
+                border-color var(--transition-medium) ease,
+                box-shadow var(--transition-medium) ease !important;
+}
+
+/*================ TABS ================*/
+.tabbrowser-tab {
+    transition: all var(--transition-medium) ease !important;
+}
+
+.tab-background {
+    transition: all var(--transition-medium) ease !important;
+    border-radius: var(--tab-border-radius) !important;
+    margin: 4px 2px !important;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"]) {
+    background-color: rgba(var(--gruvbox-bg2), 0.5) !important;
+    transform: translateY(-1px);
+}
+
+.tab-content {
+    transition: all var(--transition-medium) ease !important;
+}
+
+.tab-close-button {
+    transition: all var(--transition-short) ease !important;
+    border-radius: 50% !important;
+}
+
+.tab-close-button:hover {
+    background-color: rgba(var(--gruvbox-red), 0.2) !important;
+    transform: scale(1.1);
+}
+
+/*================ URL BAR ================*/
+#urlbar {
+    --urlbar-height: 34px !important;
+    --urlbar-toolbar-height: 34px !important;
+}
+
+#urlbar-background {
+    border-radius: var(--url-bar-radius) !important;
+    border: none !important;
+    background-color: rgba(var(--gruvbox-bg1), 0.7) !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+#urlbar-input-container {
+    transition: all var(--transition-medium) ease !important;
+}
+
+#urlbar[focused="true"] > #urlbar-background {
+    background-color: rgba(var(--gruvbox-bg2), 0.9) !important;
+}
+
+.urlbarView {
+    background-color: rgba(var(--gruvbox-bg1), 0.95) !important;
+    border-radius: var(--url-bar-radius) !important;
+    backdrop-filter: blur(8px) !important;
+    margin-top: 2px !important;
+}
+
+.urlbarView-row:hover {
+    background-color: rgba(var(--gruvbox-bg2), 0.5) !important;
+    border-radius: calc(var(--url-bar-radius) - 2px) !important;
+}
+
+/*================ NAVBAR BUTTONS ================*/
+.toolbarbutton-1 {
+    transition: all var(--transition-short) ease !important;
+    border-radius: var(--button-radius) !important;
+}
+
+.toolbarbutton-1:hover {
+    background-color: rgba(var(--gruvbox-green), 0.2) !important;
+    transform: translateY(-1px);
+}
+
+.toolbarbutton-1:active {
+    transform: translateY(1px);
+}
+
+/*================ BOOKMARKS BAR ================*/
+#PersonalToolbar {
+    transition: all var(--transition-medium) ease !important;
+    padding: 4px !important;
+}
+
+.bookmark-item {
+    transition: all var(--transition-short) ease !important;
+    border-radius: var(--button-radius) !important;
+}
+
+.bookmark-item:hover {
+    background-color: rgba(var(--gruvbox-blue), 0.2) !important;
+    transform: translateY(-1px);
+}
+
+/*================ SIDEBAR ================*/
+#sidebar-box {
+    background-color: rgba(var(--gruvbox-bg), 0.95) !important;
+    border-right: 1px solid rgba(var(--gruvbox-bg2), 0.5) !important;
+}
+
+#sidebar-header {
+    border-bottom: 1px solid rgba(var(--gruvbox-bg2), 0.5) !important;
+}
+
+/*================ CONTEXT MENUS ================*/
+menupopup {
+    --menu-background-color: rgba(var(--gruvbox-bg), 0.95) !important;
+    --menu-border-color: rgba(var(--gruvbox-bg2), 0.5) !important;
+    --menuitem-hover-background-color: rgba(var(--gruvbox-green), 0.2) !important;
+
+    animation: fadeIn var(--transition-short) ease;
+    background-color: var(--menu-background-color) !important;
+    border: 1px solid var(--menu-border-color) !important;
+    border-radius: var(--button-radius) !important;
+    padding: 4px !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+menuitem {
+    transition: background-color var(--transition-short) ease !important;
+    border-radius: calc(var(--button-radius) - 2px) !important;
+}
+
+menuitem:hover {
+    background-color: var(--menuitem-hover-background-color) !important;
+}
+
+/*================ FINDBAR ================*/
+.findbar-textbox {
+    border-radius: var(--button-radius) !important;
+    background-color: rgba(var(--gruvbox-bg1), 0.7) !important;
+    border: none !important;
+}
+
+.findbar-button {
+    transition: all var(--transition-short) ease !important;
+    border-radius: var(--button-radius) !important;
+}
+
+.findbar-button:hover {
+    background-color: rgba(var(--gruvbox-green), 0.2) !important;
+    transform: translateY(-1px);
+}
+
+/*================ SCROLLBARS ================*/
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--gruvbox-bg2), 0.8) rgba(var(--gruvbox-bg), 0.4);
+}
+
+/*================ DARK MODE SPECIFIC ================*/
+@media (prefers-color-scheme: dark) {
+    #navigator-toolbox {
+        background-color: rgba(var(--gruvbox-bg), 1) !important;
+    }
+
+    #nav-bar {
+        background-color: rgba(var(--gruvbox-bg), 0.95) !important;
+        backdrop-filter: blur(8px) !important;
+    }
+
+    .tab-background[selected="true"] {
+        background-color: rgba(var(--gruvbox-green), 0.2) !important;
+    }
+}
